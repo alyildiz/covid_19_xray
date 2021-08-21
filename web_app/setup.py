@@ -1,10 +1,10 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="src",
+    name="web_app",
     packages=find_packages(),
     version="0.1.0",
-    description="Xray classification using pre trained model",
+    description="web_app",
     author="ALYILDIZ Baris",
     license="MIT",
 )

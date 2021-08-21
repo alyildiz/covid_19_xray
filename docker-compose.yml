@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+    modeling:
+        container_name: modeling 
+        build: 'modeling/'
+        volumes:
+            - ./modeling/bin:/workdir/bin
+            - ./modeling/src:/workdir/src
+            - ./data/raw:/workdir/data/raw
+            - ./notebooks:/workdir/notebooks
+        #command: "tail -f /dev/null"
+        command: "jupyter notebook --ip 0.0.0.0 --allow-root"
+        environment:
+            - DISPLAY=host.docker.internal:0
+        ports:
+            - "8888:8888"
+
+    web_app:
+        container_name: web_app
+        build: 'web_app/'
+        volumes:
+            - ./modeling/src:/workdir/src
+            - ./web_app:/workdir/web_app
+            - ./data/raw:/workdir/data/raw
+        ports:
+            - "8501:8501"
+        command: "streamlit run web_app/server.py"

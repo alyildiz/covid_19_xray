@@ -1,57 +1,43 @@
 covid_19_xray
 ==============================
 
-Xray classification using pre trained model
+Chest XRay classification using ResNet152
 
+Classes : Covid, Normal or Viral Pneumonia
+
+If you want to retrain the model download this dataset : https://www.kaggle.com/pranavraikokte/covid19-image-dataset and unzip the file in data/raw
+
+Modeling
+==============================
+To run the container : ```docker-compose up modeling```
+Use ```docker exec -it modeling bash``` to get inside the container. From there, there are 1 endpoint :
+- ```/workdir/bin/train_and_save.py``` to train the BasicCNN model (downloading the dataset is mandatory)
+You can also visualize the notebook on ```0.0.0.0:8888```
+
+WebApp
+==============================
+To run the web app : ```docker-compose up web_app```
+Go to ```localhost:8501``` to visualize the interface.
+ 
 Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   └── raw            <- The original, immutable data dump.
+    │       └── Covid19-dataset
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── modeling           <- Modeling container 
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── web_app            <- Web app container
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── docker-compose.yml <- to run all containers
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
