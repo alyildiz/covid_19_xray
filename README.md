@@ -7,6 +7,8 @@ Classes : Covid, Normal or Viral Pneumonia
 
 If you want to retrain the model download this dataset : https://www.kaggle.com/pranavraikokte/covid19-image-dataset and unzip the file in data/raw
 
+![alt text](https://github.com/alyildiz/covid_19_xray/blob/master/web_app/webapp.png?raw=true)
+
 Modeling
 ==============================
 To run the container : ```docker-compose up modeling```
