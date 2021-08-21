@@ -13,7 +13,7 @@ Modeling
 ==============================
 To run the container : ```docker-compose up modeling```
 Use ```docker exec -it modeling bash``` to get inside the container. From there, there are 1 endpoint :
-- ```/workdir/bin/train_and_save.py``` to train the BasicCNN model (downloading the dataset is mandatory)
+- ```/workdir/bin/train_and_save.py``` to train the ResNet152 model (downloading the dataset is mandatory)
 You can also visualize the notebook on ```0.0.0.0:8888```
 
 WebApp
